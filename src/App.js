@@ -1,9 +1,9 @@
 import React, { lazy, Suspense, Component } from 'react';
 import './App.css';
 
-const Page1 = React.lazy(() => import('./Components/Page1'));
-const Page2 = React.lazy(() => import('./Components/Page2'));
-const Page3 = React.lazy(() => import('./Components/Page3'));
+const Page1 = lazy(() => import('./Components/Page1'));
+const Page2 = lazy(() => import('./Components/Page2'));
+const Page3 = lazy(() => import('./Components/Page3'));
 
 // import Page1 from './Components/Page1';
 // import Page2 from './Components/Page2';
@@ -42,35 +42,21 @@ class App extends Component {
     //     });
     // }
   }
-  render() {
+  render() { 
     // Part 1 - No code splitting
     if (this.state.route === 'page1') {
-      return <Page1 onRouteChange={this.onRouteChange} />
+      return <Page1 onRouteChange={this.onRouteChange} /> 
     } else if (this.state.route === 'page2') {
-      return <Page2 onRouteChange={this.onRouteChange} />
+      return <Page2 onRouteChange={this.onRouteChange} /> 
     } else {
-      return <Page3 onRouteChange={this.onRouteChange} />
+      return <Page3 onRouteChange={this.onRouteChange} /> 
     }
-
-    // Part 2 - No Code Splitting - manual
-    // if (this.state.route === 'page1') {
-    //   return <Page1 onRouteChange={this.onRouteChange} />
-    // } else {
-    //   return <this.state.component onRouteChange={this.onRouteChange} />
-    // }
-
-    // Part 3 - Cleaner Code Splitting
-    // if (this.state.route === 'page1') {
-    //   return <Page1 onRouteChange={this.onRouteChange} />
-    // } else if (this.state.route === 'page2') {
-    //   const AsyncPage2 = AsyncComponent(() => import("./Components/Page2"));
-    //   return <AsyncPage2 onRouteChange={this.onRouteChange} />
-    // } else {
-    //   const AsyncPage3 = AsyncComponent(() => import("./Components/Page3"));
-    //   return <AsyncPage3 onRouteChange={this.onRouteChange} />
-    // }
-
-  }
 }
+ }
+   
+    
+    
+
+
 
 export default App;
