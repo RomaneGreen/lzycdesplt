@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Page1 from './Components/Page1';
-// Part 1 - No Code Splitting
-import Page2 from './Components/Page2';
-import Page3 from './Components/Page3';
-// Part 3 - Cleaner Code Splitting
-// import AsyncComponent from './AsyncComponent';
+const Page1 = React.lazy(() => import('./Components/Page1'));
+const Page2 = React.lazy(() => import('./Components/Page2'));
+const Page3 = React.lazy(() => import('./Components/Page3'));
+
+// import Page1 from './Components/Page1';
+// import Page2 from './Components/Page2';
+// import Page3 from './Components/Page3';
+
 
 class App extends Component {
   constructor() {
